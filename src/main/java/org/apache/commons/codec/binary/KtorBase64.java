@@ -51,7 +51,7 @@ import java.math.BigInteger;
  * @since 1.0
  * @version $Id$
  */
-public class Base64 extends BaseNCodec {
+public class KtorBase64 extends BaseNCodec {
 
     /**
      * BASE32 characters are 6 bits in length.
@@ -171,7 +171,7 @@ public class Base64 extends BaseNCodec {
      * When decoding all variants are supported.
      * </p>
      */
-    public Base64() {
+    public KtorBase64() {
         this(0);
     }
 
@@ -190,7 +190,7 @@ public class Base64 extends BaseNCodec {
      *            <code>false</code>.
      * @since 1.4
      */
-    public Base64(final boolean urlSafe) {
+    public KtorBase64(final boolean urlSafe) {
         this(MIME_CHUNK_SIZE, CHUNK_SEPARATOR, urlSafe);
     }
 
@@ -213,7 +213,7 @@ public class Base64 extends BaseNCodec {
      *            decoding.
      * @since 1.4
      */
-    public Base64(final int lineLength) {
+    public KtorBase64(final int lineLength) {
         this(lineLength, CHUNK_SEPARATOR);
     }
 
@@ -240,7 +240,7 @@ public class Base64 extends BaseNCodec {
      *             Thrown when the provided lineSeparator included some base64 characters.
      * @since 1.4
      */
-    public Base64(final int lineLength, final byte[] lineSeparator) {
+    public KtorBase64(final int lineLength, final byte[] lineSeparator) {
         this(lineLength, lineSeparator, false);
     }
 
@@ -271,7 +271,7 @@ public class Base64 extends BaseNCodec {
      *             The provided lineSeparator included some base64 characters. That's not going to work!
      * @since 1.4
      */
-    public Base64(final int lineLength, final byte[] lineSeparator, final boolean urlSafe) {
+    public KtorBase64(final int lineLength, final byte[] lineSeparator, final boolean urlSafe) {
         super(BYTES_PER_UNENCODED_BLOCK, BYTES_PER_ENCODED_BLOCK,
                 lineLength,
                 lineSeparator == null ? 0 : lineSeparator.length);
@@ -666,7 +666,7 @@ public class Base64 extends BaseNCodec {
 
         // Create this so can use the super-class method
         // Also ensures that the same roundings are performed by the ctor and the code
-        final Base64 b64 = isChunked ? new Base64(urlSafe) : new Base64(0, CHUNK_SEPARATOR, urlSafe);
+        final KtorBase64 b64 = isChunked ? new KtorBase64(urlSafe) : new KtorBase64(0, CHUNK_SEPARATOR, urlSafe);
         final long len = b64.getEncodedLength(binaryData);
         if (len > maxResultSize) {
             throw new IllegalArgumentException("Input array too big, the output array would be bigger (" +
@@ -690,7 +690,7 @@ public class Base64 extends BaseNCodec {
      * @since 1.4
      */
     public static byte[] decodeBase64(final String base64String) {
-        return new Base64().decode(base64String);
+        return new KtorBase64().decode(base64String);
     }
 
     /**
@@ -704,7 +704,7 @@ public class Base64 extends BaseNCodec {
      * @return Array containing decoded data.
      */
     public static byte[] decodeBase64(final byte[] base64Data) {
-        return new Base64().decode(base64Data);
+        return new KtorBase64().decode(base64Data);
     }
 
     // Implementation of the Encoder Interface

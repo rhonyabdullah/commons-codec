@@ -201,7 +201,7 @@ public class Base64TestData {
         final Random r = new Random();
         final byte[] decoded = new byte[size];
         r.nextBytes(decoded);
-        final byte[] encoded = urlSafe ? Base64.encodeBase64URLSafe(decoded) : Base64.encodeBase64(decoded);
+        final byte[] encoded = urlSafe ? KtorBase64.encodeBase64URLSafe(decoded) : KtorBase64.encodeBase64(decoded);
         return new byte[][] {decoded, encoded};
     }
 

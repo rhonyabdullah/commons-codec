@@ -25,7 +25,7 @@ import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.StringDecoder;
 import org.apache.commons.codec.StringEncoder;
-import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.codec.binary.KtorBase64;
 
 /**
  * Identical to the Base64 encoding defined by <a href="http://www.ietf.org/rfc/rfc1521.txt">RFC 1521</a>
@@ -93,7 +93,7 @@ public class BCodec extends RFC1522Codec implements StringEncoder, StringDecoder
         if (bytes == null) {
             return null;
         }
-        return Base64.encodeBase64(bytes);
+        return KtorBase64.encodeBase64(bytes);
     }
 
     @Override
@@ -101,7 +101,7 @@ public class BCodec extends RFC1522Codec implements StringEncoder, StringDecoder
         if (bytes == null) {
             return null;
         }
-        return Base64.decodeBase64(bytes);
+        return KtorBase64.decodeBase64(bytes);
     }
 
     /**

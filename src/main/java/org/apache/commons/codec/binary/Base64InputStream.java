@@ -62,7 +62,7 @@ public class Base64InputStream extends BaseNCodecInputStream {
      *            true if we should encode all data read from us, false if we should decode.
      */
     public Base64InputStream(final InputStream in, final boolean doEncode) {
-        super(in, new Base64(false), doEncode);
+        super(in, new KtorBase64(false), doEncode);
     }
 
     /**
@@ -83,6 +83,6 @@ public class Base64InputStream extends BaseNCodecInputStream {
      */
     public Base64InputStream(final InputStream in, final boolean doEncode,
                              final int lineLength, final byte[] lineSeparator) {
-        super(in, new Base64(lineLength, lineSeparator), doEncode);
+        super(in, new KtorBase64(lineLength, lineSeparator), doEncode);
     }
 }

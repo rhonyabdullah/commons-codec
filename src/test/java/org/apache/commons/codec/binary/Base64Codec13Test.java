@@ -363,7 +363,7 @@ public class Base64Codec13Test {
      */
     @Test
     public void testEncoder() throws EncoderException {
-        final Encoder enc = new Base64();
+        final Encoder enc = new KtorBase64();
         for (int i = 0; i < STRINGS.length; i++) {
             if (STRINGS[i] != null) {
                 final byte[] base64 = utf8(STRINGS[i]);
@@ -382,7 +382,7 @@ public class Base64Codec13Test {
      */
     @Test
     public void testDecoder() throws DecoderException {
-        final Decoder dec = new Base64();
+        final Decoder dec = new KtorBase64();
         for (int i = 0; i < STRINGS.length; i++) {
             if (STRINGS[i] != null) {
                 final byte[] base64 = utf8(STRINGS[i]);
@@ -401,7 +401,7 @@ public class Base64Codec13Test {
      */
     @Test
     public void testBinaryEncoder() throws EncoderException {
-        final BinaryEncoder enc = new Base64();
+        final BinaryEncoder enc = new KtorBase64();
         for (int i = 0; i < STRINGS.length; i++) {
             if (STRINGS[i] != null) {
                 final byte[] base64 = utf8(STRINGS[i]);
@@ -420,7 +420,7 @@ public class Base64Codec13Test {
      */
     @Test
     public void testBinaryDecoder() throws DecoderException {
-        final BinaryDecoder dec = new Base64();
+        final BinaryDecoder dec = new KtorBase64();
         for (int i = 0; i < STRINGS.length; i++) {
             if (STRINGS[i] != null) {
                 final byte[] base64 = utf8(STRINGS[i]);
@@ -443,7 +443,7 @@ public class Base64Codec13Test {
             if (STRINGS[i] != null) {
                 final byte[] base64 = utf8(STRINGS[i]);
                 final byte[] binary = BYTES[i];
-                final boolean b = Arrays.equals(base64, Base64.encodeBase64(binary));
+                final boolean b = Arrays.equals(base64, KtorBase64.encodeBase64(binary));
                 assertTrue("static Base64.encodeBase64() test-" + i, b);
             }
         }
@@ -461,7 +461,7 @@ public class Base64Codec13Test {
             if (STRINGS[i] != null) {
                 final byte[] base64 = utf8(STRINGS[i]);
                 final byte[] binary = BYTES[i];
-                final boolean b = Arrays.equals(binary, Base64.decodeBase64(base64));
+                final boolean b = Arrays.equals(binary, KtorBase64.decodeBase64(base64));
                 assertTrue("static Base64.decodeBase64() test-" + i, b);
             }
         }
@@ -479,7 +479,7 @@ public class Base64Codec13Test {
             if (STRINGS[i] != null) {
                 final byte[] base64Chunked = utf8(CHUNKED_STRINGS[i]);
                 final byte[] binary = BYTES[i];
-                final boolean b = Arrays.equals(base64Chunked, Base64.encodeBase64Chunked(binary));
+                final boolean b = Arrays.equals(base64Chunked, KtorBase64.encodeBase64Chunked(binary));
                 assertTrue("static Base64.encodeBase64Chunked() test-" + i, b);
             }
         }
@@ -498,7 +498,7 @@ public class Base64Codec13Test {
             if (STRINGS[i] != null) {
                 final byte[] base64Chunked = utf8(CHUNKED_STRINGS[i]);
                 final byte[] binary = BYTES[i];
-                final boolean b = Arrays.equals(binary, Base64.decodeBase64(base64Chunked));
+                final boolean b = Arrays.equals(binary, KtorBase64.decodeBase64(base64Chunked));
                 assertTrue("static Base64.decodeBase64Chunked() test-" + i, b);
             }
         }
